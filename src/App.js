@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Empoyees from 'components/Employees';
+import Jobs from 'components/Jobs';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  toolbar: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+}));
+
 
 function App() {
+  const classes = useStyles()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root}>
+      <Jobs />
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Empoyees />
+      </main>
     </div>
   );
 }
